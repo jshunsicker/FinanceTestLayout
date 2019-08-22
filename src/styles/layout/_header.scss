@@ -1,5 +1,6 @@
 .header {
-  grid-area: 1 / 2 / 2 / 8;
+  grid-row: 1;
+  grid-column: 1 / -1;
   background: $color-primary;
   display: flex;
   justify-content: flex-end;
