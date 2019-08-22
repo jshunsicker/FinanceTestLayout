@@ -1,4 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In a poor attempt to recreate as many of the relevant styles from dribble:
+https://dribbble.com/shots/5805421-Finance-Analytical-and-Monitoring-Tool-UX-UI-Design/attachments/1251659
 
 ## Available Scripts
 
