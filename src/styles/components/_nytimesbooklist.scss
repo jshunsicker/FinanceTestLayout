@@ -1,0 +1,55 @@
+.best-seller {
+  max-width: 40rem;
+
+  padding: 1rem;
+
+  box-shadow: 3px 6px 8px rgba(0, 0, 0, 0.2);
+
+  border-radius: 5px;
+
+  color: $color-grey-dark-3;
+
+  background: linear-gradient(to bottom, $color-white-1, $color-grey-1);
+  h2 {
+    color: $color-primary-light;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+  }
+
+  &__titles {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 1rem 0;
+  }
+
+  &__list {
+    list-style: none;
+    overflow: auto;
+  }
+
+  &__results {
+    max-height: 25rem;
+    overflow: auto;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 0.5fr;
+    padding: 0.5rem 0.25rem;
+
+    border-bottom: 1px solid $color-grey-1;
+  }
+
+  &__name {
+    font-size: 1.3rem;
+    color: darken($color-grey-dark, 20%);
+  }
+
+  &__date {
+    color: $color-grey-dark;
+    font-size: 1.3rem;
+    justify-self: right;
+  }
+}
