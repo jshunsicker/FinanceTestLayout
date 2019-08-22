@@ -1,0 +1,38 @@
+.header {
+  grid-area: 1 / 2 / 2 / 8;
+  background: $color-primary;
+  display: flex;
+  justify-content: flex-end;
+
+  &__search {
+    margin-right: 3rem;
+    min-width: 20rem;
+  }
+}
+
+.search {
+  &__wrapper {
+    font-size: 1.4rem;
+  }
+  &__label {
+    transition: all 0.5s ease;
+    display: block;
+    font-size: 1.6rem;
+    transform: translateX(1rem) translateY(2.8rem) scale(0.9);
+    color: $color-primary;
+    cursor: text;
+
+    &--focus {
+      transform: scale(1);
+      color: $color-white;
+    }
+  }
+
+  &__input {
+    border-radius: 5px;
+    border: 1px solid $color-grey-dark-2;
+    padding: 0.5rem;
+    display: block;
+    width: 100%;
+  }
+}

@@ -1,0 +1,28 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.app {
+  width: 95vw;
+  height: 95vh;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 8rem repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+

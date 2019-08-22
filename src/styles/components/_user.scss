@@ -1,0 +1,32 @@
+.user {
+  display: bock;
+  padding: 2.5rem 2rem;
+  border-top: 1px solid darken($color-grey-dark, 30%);
+  display: flex;
+
+  &:hover {
+    background: lighten($color-primary, 10%);
+    cursor: pointer;
+  }
+
+  &__img {
+    clip-path: circle(45% at 50% 50%);
+  }
+
+  &__info {
+    margin-left: 1rem;
+    line-height: 1.5;
+    align-self: center;
+  }
+
+  &__name {
+    text-transform: capitalize;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: $color-grey-1;
+  }
+
+  &__email{
+      text-transform: capitalize;
+  }
+}
