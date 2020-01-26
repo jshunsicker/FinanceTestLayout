@@ -7,7 +7,13 @@ export default function NyTimesBookLists() {
   const { state, setNyTimesBookLists, setBookListName } = useContext(
     BookContext
   );
+  const [error, setError] = useState(null);
   useEffect(() => {
+    setError(null);
+    fetchNyTimesBookLists();
+  }, []);
+
+  function fetchNyTimesBookLists() {
     fetch(
       `https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=${NY_TIMES_API_KEY}`
     )
@@ -26,13 +32,17 @@ export default function NyTimesBookLists() {
             lastPublishedDate: result.newest_published_date
           };
         });
-        // setNyTimesBookLists(lists);
+
+        setError(null);
         setNyTimesBookLists(lists);
+      })
+      .catch(error => {
+        setError(error.message);
+        console.error(error);
       });
-  }, []);
+  }
 
   function handleBookListClick(listName) {
-    console.log("handle click:", listName);
     if (listName) {
       setBookListName(listName);
     }
@@ -40,6 +50,17 @@ export default function NyTimesBookLists() {
 
   return (
     <section className="best-seller">
+      {error && (
+        <div className="ny-books-list__error">
+          Error fetching Data
+          <button
+            className="best-seller__button button button--primary"
+            onClick={fetchNyTimesBookLists}
+          >
+            Retry?
+          </button>
+        </div>
+      )}
       <div className="best-seller__titles">
         <h2>Best Seller List</h2>
         <h2>Last Published</h2>

@@ -1,0 +1,23 @@
+.card {
+  &__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    margin: 50vh auto;
+
+    perspective: 2700px;
+
+    transform-style: preserve-3d;
+    width: 80vmin;
+    height: 44vmin;
+    max-height: 330px;
+    max-width: 600px;
+    min-height: 242px;
+    min-width: 440px;
+
+    transform: translate3d(0, -50%, 0);
+  }
+}

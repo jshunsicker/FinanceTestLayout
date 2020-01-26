@@ -1,7 +1,7 @@
 .content {
   // grid-area: 2 / 2 / 7 / 8;
-  grid-column: 2 / -1;
-  grid-row: 1 / -1;
+  grid-column: 3 / -1;
+  grid-row: 2 / -1;
   background: $color-white-1;
   padding: 2rem;
   color: rgba(0, 0, 0, 6);
@@ -9,5 +9,10 @@
   &__title {
     font-size: 2.5rem;
     // letter-spacing: .5ch;
+  }
+
+  &__lists {
+    display: flex;
+    justify-content: flex-start;
   }
 }
