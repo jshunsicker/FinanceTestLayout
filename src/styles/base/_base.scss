@@ -14,6 +14,27 @@ html {
 body {
   box-sizing: border-box;
   display: flex;
+
+  --color-primary: #0a122a;
+
+  --color-secondary: #698f3f;
+
+  --color-grey-1: #e7decd;
+
+  --color-grey-dark: #804e49;
+
+  --color-tertiary-light: #2998ff;
+
+  --color-grey-light-1: #f7f7f7;
+  --color-grey-light-2: #eee;
+
+  --color-grey-dark: #777;
+  --color-grey-dark-2: #999;
+  --color-grey-dark-3: #333;
+
+  --color-bg-light:#fbfaf8;
+
+  --color-bg-dark: #804e49;
 }
 
 .app {
@@ -26,4 +47,3 @@ body {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
-

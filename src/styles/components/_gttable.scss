@@ -1,7 +1,6 @@
 .table__container {
   max-width: 100%;
-  min-width: 50vw;
-  padding: 10rem;
+  padding: 2rem 0rem;
   display: grid;
 }
 
@@ -10,6 +9,7 @@
   padding: 0.2rem;
   display: grid;
   min-width: 0;
+  border: 1px solid darkgrey;
 
   &__thead,
   &__body {
@@ -20,14 +20,16 @@
   }
 
   &__thead {
-    background-color: lightcoral;
+    background-color: #cfdbd5;
     font-size: 1.5rem;
     color: rgba(0, 0, 0, 0.8);
+    border: 1px solid darkgrey;
+    border-bottom: transparent;
   }
 
   &__th {
     position: relative;
-    border: 1px solid black;
+    border: 1px solid darken(darkgrey, 5%);
     margin: 0;
     padding: 5px;
     border-right: none;
@@ -36,8 +38,8 @@
   &__th-resizer {
     position: absolute;
     height: 100%;
-    width: 3px;
-    background-color: black;
+    width: 2px;
+    background-color: darken(darkgrey, 5%);
     top: 0;
     right: 0;
     cursor: col-resize;
@@ -55,12 +57,19 @@
     font-size: 1.3rem;
     color: rgba(0, 0, 0, 0.75);
 
+    border: 1px solid darkgrey;
+    border-bottom: transparent;
+
     &:nth-child(2n) {
-      background-color: lightsalmon;
+      background-color: #e8eddf;
     }
 
     &:nth-child(2n-1) {
-      background-color: lightgoldenrodyellow;
+      background-color: #fff;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid darkgrey;
     }
   }
 

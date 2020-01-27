@@ -727,3 +727,642 @@ export const data = {
   ],
   listName: "hardcover-nonfiction"
 };
+
+export const combinedPrintAndEbook = {
+  status: "OK",
+  copyright:
+    "Copyright (c) 2020 The New York Times Company.  All Rights Reserved.",
+  num_results: 15,
+  last_modified: "2020-01-22T23:38:01-05:00",
+  results: [
+    {
+      list_name: "Combined Print and E-Book Fiction",
+      display_name: "Combined Print & E-Book Fiction",
+      bestsellers_date: "2020-01-18",
+      published_date: "2020-02-02",
+      rank: 1,
+      rank_last_week: 1,
+      weeks_on_list: 71,
+      asterisk: 0,
+      dagger: 0,
+      amazon_product_url:
+        "https://www.amazon.com/Where-Crawdads-Sing-Delia-Owens/dp/0735219095?tag=NYTBS-20",
+      isbns: [
+        { isbn10: "0735219095", isbn13: "9780735219090" },
+        { isbn10: "0735219117", isbn13: "9780735219113" },
+        { isbn10: "0525640371", isbn13: "9780525640370" },
+        { isbn10: "0593105419", isbn13: "9780593105412" },
+        { isbn10: "0593187989", isbn13: "9780593187982" }
+      ],
+      book_details: [
+        {
+          title: "WHERE THE CRAWDADS SING",
+          description:
+            "In a quiet town on the North Carolina coast in 1969, a young woman who survived alone in the marsh becomes a murder suspect.",
+          contributor: "by Delia Owens",
+          author: "Delia Owens",
+          contributor_note: "",
+          price: 0,
+          age_group: "",
+          publisher: "Putnam",
+          primary_isbn13: "9780735219090",
+          primary_isbn10: "0735219095"
+        }
+      ],
+      reviews: [
+        {
+          book_review_link: "",
+          first_chapter_link: "",
+          sunday_review_link: "",
+          article_chapter_link: ""
+        }
+      ]
+    },
+    {
+      list_name: "Combined Print and E-Book Fiction",
+      display_name: "Combined Print & E-Book Fiction",
+      bestsellers_date: "2020-01-18",
+      published_date: "2020-02-02",
+      rank: 2,
+      rank_last_week: 0,
+      weeks_on_list: 1,
+      asterisk: 0,
+      dagger: 0,
+      amazon_product_url:
+        "https://www.amazon.com/Lost-James-Patterson-ebook/dp/B07Y82FGFQ?tag=NYTBS-20",
+      isbns: [
+        { isbn10: "0316420328", isbn13: "9780316420327" },
+        { isbn10: "0316493988", isbn13: "9780316493987" }
+      ],
+      book_details: [
+        {
+          title: "LOST",
+          description:
+            "The new head of an F.B.I. task force takes on a crime syndicate run by a pair of Russian nationals.",
+          contributor: "by James Patterson and James O. Born",
+          author: "James Patterson and James O Born",
+          contributor_note: "",
+          price: 0,
+          age_group: "",
+          publisher: "Little, Brown",
+          primary_isbn13: "9780316493987",
+          primary_isbn10: "0316493988"
+        }
+      ],
+      reviews: [
+        {
+          book_review_link: "",
+          first_chapter_link: "",
+          sunday_review_link: "",
+          article_chapter_link: ""
+        }
+      ]
+    },
+    {
+      list_name: "Combined Print and E-Book Fiction",
+      display_name: "Combined Print & E-Book Fiction",
+      bestsellers_date: "2020-01-18",
+      published_date: "2020-02-02",
+      rank: 3,
+      rank_last_week: 4,
+      weeks_on_list: 4,
+      asterisk: 0,
+      dagger: 0,
+      amazon_product_url:
+        "http://www.amazon.com/The-Last-Wish-Introducing-Witcher/dp/0316029181?tag=NYTBS-20",
+      isbns: [
+        { isbn10: "0316029181", isbn13: "9780316029186" },
+        { isbn10: "0316055085", isbn13: "9780316055086" },
+        { isbn10: "0316497541", isbn13: "9780316497541" },
+        { isbn10: "0316438960", isbn13: "9780316438964" },
+        { isbn10: "1478904712", isbn13: "9781478904717" },
+        { isbn10: "147893333X", isbn13: "9781478933335" }
+      ],
+      book_details: [
+        {
+          title: "THE LAST WISH",
+          description:
+            "Linked stories follow the exploits of Geralt of Rivia, a monster-slaying mercenary.",
+          contributor: "by Andrzej Sapkowski",
+          author: "Andrzej Sapkowski",
+          contributor_note: "",
+          price: 0,
+          age_group: "",
+          publisher: "Orbit",
+          primary_isbn13: "9780316055086",
+          primary_isbn10: "0316055085"
+        }
+      ],
+      reviews: [
+        {
+          book_review_link: "",
+          first_chapter_link: "",
+          sunday_review_link: "",
+          article_chapter_link: ""
+        }
+      ]
+    },
+    {
+      list_name: "Combined Print and E-Book Fiction",
+      display_name: "Combined Print & E-Book Fiction",
+      bestsellers_date: "2020-01-18",
+      published_date: "2020-02-02",
+      rank: 4,
+      rank_last_week: 7,
+      weeks_on_list: 14,
+      asterisk: 0,
+      dagger: 0,
+      amazon_product_url:
+        "https://www.amazon.com/Guardians-Novel-John-Grisham/dp/0385544189?tag=NYTBS-20",
+      isbns: [
+        { isbn10: "0385544189", isbn13: "9780385544184" },
+        { isbn10: "0525639365", isbn13: "9780525639367" },
+        { isbn10: "0385544200", isbn13: "9780385544207" }
+      ],
+      book_details: [
+        {
+          title: "THE GUARDIANS",
+          description:
+            "Cullen Post, a lawyer and Episcopal minister, antagonizes some ruthless killers when he takes on a wrongful conviction case.",
+          contributor: "by John Grisham",
+          author: "John Grisham",
+          contributor_note: "",
+          price: 0,
+          age_group: "",
+          publisher: "Doubleday",
+          primary_isbn13: "9780385544191",
+          primary_isbn10: "None"
+        }
+      ],
+      reviews: [
+        {
+          book_review_link: "",
+          first_chapter_link: "",
+          sunday_review_link: "",
+          article_chapter_link: ""
+        }
+      ]
+    },
+    {
+      list_name: "Combined Print and E-Book Fiction",
+      display_name: "Combined Print & E-Book Fiction",
+      bestsellers_date: "2020-01-18",
+      published_date: "2020-02-02",
+      rank: 5,
+      rank_last_week: 11,
+      weeks_on_list: 18,
+      asterisk: 0,
+      dagger: 0,
+      amazon_product_url:
+        "https://www.amazon.com/Silent-Patient-Alex-Michaelides/dp/1250301696?tag=NYTBS-20",
+      isbns: [
+        { isbn10: "1250301696", isbn13: "9781250301697" },
+        { isbn10: "1250301718", isbn13: "9781250301710" },
+        { isbn10: "1250317541", isbn13: "9781250317544" },
+        { isbn10: "1432858645", isbn13: "9781432858643" }
+      ],
+      book_details: [
+        {
+          title: "THE SILENT PATIENT",
+          description:
+            "Theo Faber looks into the mystery of a famous painter who stops speaking after shooting her husband.",
+          contributor: "by Alex Michaelides",
+          author: "Alex Michaelides",
+          contributor_note: "",
+          price: 0,
+          age_group: "",
+          publisher: "Celadon",
+          primary_isbn13: "9781250301710",
+          primary_isbn10: "1250301718"
+        }
+      ],
+      reviews: [
+        {
+          book_review_link: "",
+          first_chapter_link: "",
+          sunday_review_link: "",
+          article_chapter_link: ""
+        }
+      ]
+    },
+    {
+      list_name: "Combined Print and E-Book Fiction",
+      display_name: "Combined Print & E-Book Fiction",
+      bestsellers_date: "2020-01-18",
+      published_date: "2020-02-02",
+      rank: 6,
+      rank_last_week: 12,
+      weeks_on_list: 17,
+      asterisk: 0,
+      dagger: 0,
+      amazon_product_url:
+        "https://www.amazon.com/Dutch-House-Novel-Ann-Patchett/dp/0062963678?tag=NYTBS-20",
+      isbns: [
+        { isbn10: "0062963678", isbn13: "9780062963673" },
+        { isbn10: "0062963694", isbn13: "9780062963697" },
+        { isbn10: "0062963708", isbn13: "9780062963703" },
+        { isbn10: "0062963724", isbn13: "9780062963727" }
+      ],
+      book_details: [
+        {
+          title: "THE DUTCH HOUSE",
+          description:
+            "A sibling relationship is impacted when the family goes from poverty to wealth and back again over the course of many decades.",
+          contributor: "by Ann Patchett",
+          author: "Ann Patchett",
+          contributor_note: "",
+          price: 0,
+          age_group: "",
+          publisher: "Harper",
+          primary_isbn13: "9780062963697",
+          primary_isbn10: "0062963694"
+        }
+      ],
+      reviews: [
+        {
+          book_review_link:
+            "https://www.nytimes.com/2019/09/21/books/review-dutch-house-ann-patchett.html",
+          first_chapter_link: "",
+          sunday_review_link: "",
+          article_chapter_link: ""
+        }
+      ]
+    },
+    {
+      list_name: "Combined Print and E-Book Fiction",
+      display_name: "Combined Print & E-Book Fiction",
+      bestsellers_date: "2020-01-18",
+      published_date: "2020-02-02",
+      rank: 7,
+      rank_last_week: 3,
+      weeks_on_list: 2,
+      asterisk: 0,
+      dagger: 0,
+      amazon_product_url:
+        "https://www.amazon.com/Dear-Edward-Novel-Ann-Napolitano/dp/198485478X?tag=NYTBS-20",
+      isbns: [
+        { isbn10: "198485478X", isbn13: "9781984854780" },
+        { isbn10: "0593229576", isbn13: "9780593229576" },
+        { isbn10: "1984854798", isbn13: "9781984854797" }
+      ],
+      book_details: [
+        {
+          title: "DEAR EDWARD",
+          description:
+            "A 12-year-old boy tries to start over after becoming the sole survivor of a plane crash in which he lost his immediate family.",
+          contributor: "by Ann Napolitano",
+          author: "Ann Napolitano",
+          contributor_note: "",
+          price: 0,
+          age_group: "",
+          publisher: "Dial",
+          primary_isbn13: "9781984854797",
+          primary_isbn10: "1984854798"
+        }
+      ],
+      reviews: [
+        {
+          book_review_link:
+            "https://www.nytimes.com/2020/01/06/books/review/dear-edward-ann-napolitano.html",
+          first_chapter_link: "",
+          sunday_review_link: "",
+          article_chapter_link: ""
+        }
+      ]
+    },
+    {
+      list_name: "Combined Print and E-Book Fiction",
+      display_name: "Combined Print & E-Book Fiction",
+      bestsellers_date: "2020-01-18",
+      published_date: "2020-02-02",
+      rank: 8,
+      rank_last_week: 9,
+      weeks_on_list: 3,
+      asterisk: 0,
+      dagger: 0,
+      amazon_product_url:
+        "https://www.amazon.com/Such-Fun-Age-Kiley-Reid/dp/052554190X?tag=NYTBS-20",
+      isbns: [
+        { isbn10: "052554190X", isbn13: "9780525541905" },
+        { isbn10: "0525541926", isbn13: "9780525541929" }
+      ],
+      book_details: [
+        {
+          title: "SUCH A FUN AGE",
+          description:
+            "Tumult ensues when Alix Chamberlain\u2019s babysitter is mistakenly accused of kidnapping her charge.",
+          contributor: "by Kiley Reid",
+          author: "Kiley Reid",
+          contributor_note: "",
+          price: 0,
+          age_group: "",
+          publisher: "Putnam",
+          primary_isbn13: "9780525541905",
+          primary_isbn10: "052554190X"
+        }
+      ],
+      reviews: [
+        {
+          book_review_link:
+            "https://www.nytimes.com/2019/12/31/books/review/such-a-fun-age-kiley-reid.html",
+          first_chapter_link: "",
+          sunday_review_link: "",
+          article_chapter_link: ""
+        }
+      ]
+    },
+    {
+      list_name: "Combined Print and E-Book Fiction",
+      display_name: "Combined Print & E-Book Fiction",
+      bestsellers_date: "2020-01-18",
+      published_date: "2020-02-02",
+      rank: 9,
+      rank_last_week: 13,
+      weeks_on_list: 14,
+      asterisk: 0,
+      dagger: 0,
+      amazon_product_url:
+        "https://www.amazon.com/Giver-Stars-Novel-Jojo-Moyes/dp/0399562486?tag=NYTBS-20",
+      isbns: [
+        { isbn10: "0399562486", isbn13: "9780399562488" },
+        { isbn10: "0399562508", isbn13: "9780399562501" },
+        { isbn10: "0525530193", isbn13: "9780525530190" }
+      ],
+      book_details: [
+        {
+          title: "THE GIVER OF STARS",
+          description:
+            "In Depression-era Kentucky, five women refuse to be cowed by men or convention as they deliver books.",
+          contributor: "by Jojo Moyes",
+          author: "Jojo Moyes",
+          contributor_note: "",
+          price: 0,
+          age_group: "",
+          publisher: "Pamela Dorman/Viking",
+          primary_isbn13: "9780399562501",
+          primary_isbn10: "0399562508"
+        }
+      ],
+      reviews: [
+        {
+          book_review_link: "",
+          first_chapter_link: "",
+          sunday_review_link: "",
+          article_chapter_link: ""
+        }
+      ]
+    },
+    {
+      list_name: "Combined Print and E-Book Fiction",
+      display_name: "Combined Print & E-Book Fiction",
+      bestsellers_date: "2020-01-18",
+      published_date: "2020-02-02",
+      rank: 10,
+      rank_last_week: 0,
+      weeks_on_list: 14,
+      asterisk: 0,
+      dagger: 0,
+      amazon_product_url:
+        "https://www.amazon.com/Outsider-Novel-Stephen-King/dp/1501180983?tag=NYTBS-20",
+      isbns: [
+        { isbn10: "1501180983", isbn13: "9781501180989" },
+        { isbn10: "1501181017", isbn13: "9781501181016" },
+        { isbn10: "1508252211", isbn13: "9781508252214" },
+        { isbn10: "1501181009", isbn13: "9781501181009" }
+      ],
+      book_details: [
+        {
+          title: "THE OUTSIDER",
+          description:
+            "A detective investigates a seemingly wholesome member of the community when an 11-year-old boy\u2019s body is found.",
+          contributor: "by Stephen King",
+          author: "Stephen King",
+          contributor_note: "",
+          price: 0,
+          age_group: "",
+          publisher: "Scribner",
+          primary_isbn13: "9781501181016",
+          primary_isbn10: "1501181017"
+        }
+      ],
+      reviews: [
+        {
+          book_review_link:
+            "https://www.nytimes.com/2018/05/22/books/review/outsider-stephen-king.html",
+          first_chapter_link: "",
+          sunday_review_link: "",
+          article_chapter_link: ""
+        }
+      ]
+    },
+    {
+      list_name: "Combined Print and E-Book Fiction",
+      display_name: "Combined Print & E-Book Fiction",
+      bestsellers_date: "2020-01-18",
+      published_date: "2020-02-02",
+      rank: 11,
+      rank_last_week: 2,
+      weeks_on_list: 2,
+      asterisk: 0,
+      dagger: 0,
+      amazon_product_url:
+        "https://www.amazon.com/Moral-Compass-Novel-Danielle-Steel-ebook/dp/B07QCLC3HF?tag=NYTBS-20",
+      isbns: [
+        { isbn10: "0399179534", isbn13: "9780399179532" },
+        { isbn10: "0399179542", isbn13: "9780399179549" }
+      ],
+      book_details: [
+        {
+          title: "MORAL COMPASS",
+          description:
+            "Shortly after Saint Ambrose Prep goes co-ed, a student is attacked and the community falls apart.",
+          contributor: "by Danielle Steel",
+          author: "Danielle Steel",
+          contributor_note: "",
+          price: 0,
+          age_group: "",
+          publisher: "Delacorte",
+          primary_isbn13: "9780399179532",
+          primary_isbn10: "0399179534"
+        }
+      ],
+      reviews: [
+        {
+          book_review_link: "",
+          first_chapter_link: "",
+          sunday_review_link: "",
+          article_chapter_link: ""
+        }
+      ]
+    },
+    {
+      list_name: "Combined Print and E-Book Fiction",
+      display_name: "Combined Print & E-Book Fiction",
+      bestsellers_date: "2020-01-18",
+      published_date: "2020-02-02",
+      rank: 12,
+      rank_last_week: 0,
+      weeks_on_list: 49,
+      asterisk: 0,
+      dagger: 0,
+      amazon_product_url:
+        "https://www.amazon.com/Little-Fires-Everywhere-Celeste-Ng-ebook/dp/B01N4VW75U?tag=NYTBS-20",
+      isbns: [
+        { isbn10: "0735224293", isbn13: "9780735224292" },
+        { isbn10: "0735224307", isbn13: "9780735224308" },
+        { isbn10: "0525498079", isbn13: "9780525498070" },
+        { isbn10: "0525498060", isbn13: "9780525498063" },
+        { isbn10: "0735224315", isbn13: "9780735224315" }
+      ],
+      book_details: [
+        {
+          title: "LITTLE FIRES EVERYWHERE",
+          description: "An artist upends a quiet town outside Cleveland.",
+          contributor: "by Celeste Ng",
+          author: "Celeste Ng",
+          contributor_note: "",
+          price: 0,
+          age_group: "",
+          publisher: "Penguin Press",
+          primary_isbn13: "9780735224315",
+          primary_isbn10: "0735224315"
+        }
+      ],
+      reviews: [
+        {
+          book_review_link:
+            "https://www.nytimes.com/2017/09/25/books/review/little-fires-everywhere-celeste-ng.html",
+          first_chapter_link: "",
+          sunday_review_link: "",
+          article_chapter_link: ""
+        }
+      ]
+    },
+    {
+      list_name: "Combined Print and E-Book Fiction",
+      display_name: "Combined Print & E-Book Fiction",
+      bestsellers_date: "2020-01-18",
+      published_date: "2020-02-02",
+      rank: 13,
+      rank_last_week: 0,
+      weeks_on_list: 53,
+      asterisk: 0,
+      dagger: 0,
+      amazon_product_url:
+        "https://www.amazon.com/Before-We-Were-Yours-Novel/dp/0425284689?tag=NYTBS-20",
+      isbns: [
+        { isbn10: "0425284689", isbn13: "9780425284681" },
+        { isbn10: "0425284697", isbn13: "9780425284698" },
+        { isbn10: "1524797308", isbn13: "9781524797300" },
+        { isbn10: "1432839128", isbn13: "9781432839123" },
+        { isbn10: "0425284700", isbn13: "9780425284704" },
+        { isbn10: "1984833030", isbn13: "9781984833037" }
+      ],
+      book_details: [
+        {
+          title: "BEFORE WE WERE YOURS",
+          description:
+            "A South Carolina lawyer learns about the questionable practices of a Tennessee orphanage.",
+          contributor: "by Lisa Wingate",
+          author: "Lisa Wingate",
+          contributor_note: "",
+          price: 0,
+          age_group: "",
+          publisher: "Ballantine",
+          primary_isbn13: "9780425284704",
+          primary_isbn10: "0425284700"
+        }
+      ],
+      reviews: [
+        {
+          book_review_link: "",
+          first_chapter_link: "",
+          sunday_review_link: "",
+          article_chapter_link: ""
+        }
+      ]
+    },
+    {
+      list_name: "Combined Print and E-Book Fiction",
+      display_name: "Combined Print & E-Book Fiction",
+      bestsellers_date: "2020-01-18",
+      published_date: "2020-02-02",
+      rank: 14,
+      rank_last_week: 10,
+      weeks_on_list: 2,
+      asterisk: 0,
+      dagger: 0,
+      amazon_product_url:
+        "https://www.amazon.com/Long-Bright-River-Liz-Moore/dp/0525540679?tag=NYTBS-20",
+      isbns: [
+        { isbn10: "0525540679", isbn13: "9780525540670" },
+        { isbn10: "0593152247", isbn13: "9780593152249" }
+      ],
+      book_details: [
+        {
+          title: "LONG BRIGHT RIVER",
+          description:
+            "Mickey risks her job with the Philadelphia police force by going after a murderer and searching for her missing sister.",
+          contributor: "by Liz Moore",
+          author: "Liz Moore",
+          contributor_note: "",
+          price: 0,
+          age_group: "",
+          publisher: "Riverhead",
+          primary_isbn13: "9780525540694",
+          primary_isbn10: "None"
+        }
+      ],
+      reviews: [
+        {
+          book_review_link:
+            "https://www.nytimes.com/2020/01/07/books/review/long-bright-river-by-liz-moore-an-excerpt.html",
+          first_chapter_link: "",
+          sunday_review_link: "",
+          article_chapter_link: ""
+        }
+      ]
+    },
+    {
+      list_name: "Combined Print and E-Book Fiction",
+      display_name: "Combined Print & E-Book Fiction",
+      bestsellers_date: "2020-01-18",
+      published_date: "2020-02-02",
+      rank: 15,
+      rank_last_week: 15,
+      weeks_on_list: 3,
+      asterisk: 0,
+      dagger: 0,
+      amazon_product_url:
+        "https://www.amazon.com/Wives-Novel-Tarryn-Fisher/dp/1525809784?tag=NYTBS-20",
+      isbns: [
+        { isbn10: "1525809784", isbn13: "9781525809781" },
+        { isbn10: "1488054355", isbn13: "9781488054358" },
+        { isbn10: "1525805126", isbn13: "9781525805127" }
+      ],
+      book_details: [
+        {
+          title: "THE WIVES",
+          description:
+            "A woman discovers something disturbing about her polygamist husband.",
+          contributor: "by Tarryn Fisher",
+          author: "Tarryn Fisher",
+          contributor_note: "",
+          price: 0,
+          age_group: "",
+          publisher: "Graydon House",
+          primary_isbn13: "9781488054358",
+          primary_isbn10: "1488054355"
+        }
+      ],
+      reviews: [
+        {
+          book_review_link: "",
+          first_chapter_link: "",
+          sunday_review_link: "",
+          article_chapter_link: ""
+        }
+      ]
+    }
+  ]
+};
