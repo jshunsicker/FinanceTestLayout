@@ -32,9 +32,10 @@ body {
   --color-grey-dark-2: #999;
   --color-grey-dark-3: #333;
 
-  --color-bg-light:#fbfaf8;
+  --color-bg-light: #fbfaf8;
 
   --color-bg-dark: #804e49;
+  font-family: $font-main;
 }
 
 .app {
@@ -46,4 +47,40 @@ body {
   grid-auto-rows: 8rem;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+th {
+  font-family: $font-heading;
+  // color: $color-white-1;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2.25rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+h5 {
+  font-size: 1.9rem;
+}
+
+h6 {
+  font-size: 1.8rem;
 }

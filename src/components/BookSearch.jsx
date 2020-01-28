@@ -2,10 +2,13 @@ import React from "react";
 import { fetchBookData } from "../api/goodREadsApi";
 import { searchBooks } from "../api/googleBooksApi";
 import styled from "styled-components";
+import { tadWilliamsBookData } from "../data/tadWilliamsBookData";
 
 export default function BookSearch() {
   const [bookSearchValue, setBookSearchValue] = React.useState("");
-  const [bookResponseData, setBookResponseData] = React.useState([]);
+  const [bookResponseData, setBookResponseData] = React.useState(
+    tadWilliamsBookData.items
+  );
 
   function handleSearchInput(e) {
     const { value } = e.target;
@@ -18,7 +21,6 @@ export default function BookSearch() {
     if (data.items) {
       setBookResponseData(data.items);
     }
-    console.log("search response:", data);
   }
 
   function handleSubmit(e) {

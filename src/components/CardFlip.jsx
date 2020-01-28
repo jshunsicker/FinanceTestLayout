@@ -65,7 +65,6 @@ export default function CardFlip() {
     backgroundColor: "yellow"
   };
 
-  console.log("scrollPosition:", scrollPosition);
   return (
     <div
       className="container"

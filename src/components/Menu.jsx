@@ -6,6 +6,7 @@ import BookPage from "../pages/BookPage";
 import TestTablePage from "../pages/TestTablePage";
 import CardFlipPage from "../pages/CardFlipPage";
 import Dashboard from "../pages/Dashboard";
+import AnimatedBookPage from "../pages/AnimatedBookPage";
 
 export default function Menu() {
   const [activeMenuItem, setActiveMenuItem] = useState("Home");
@@ -20,6 +21,11 @@ export default function Menu() {
       label: "Books",
       icon: "books",
       route: "/books"
+    },
+    animatedBooks: {
+      label: "Animated Books",
+      icon: "book",
+      route: "/animatedbooks"
     },
     notes: {
       label: "Card Flip",
@@ -37,7 +43,8 @@ export default function Menu() {
     },
     settings: {
       label: "Settings",
-      icon: "cog"
+      icon: "cog",
+      route: "/"
     }
   };
 
@@ -82,6 +89,9 @@ export default function Menu() {
       </section>
 
       <Switch>
+        <Route path="/animatedbooks">
+          <AnimatedBookPage />
+        </Route>
         <Route path="/books">
           <BookPage />
         </Route>
