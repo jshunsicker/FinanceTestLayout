@@ -140,7 +140,7 @@ $grey: rgba(0, 0, 0, 0.65);
       width: 60%;
       left: 8%;
       top: 8%;
-      background-color: lighten(tan, 25%);
+      background-color: lighten(tan, 15%);
       border-radius: 0.5rem;
     }
   }
@@ -175,13 +175,14 @@ $grey: rgba(0, 0, 0, 0.65);
     // padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     min-width: 15rem;
   }
 
   &__book-title {
     font-family: $font-heading;
     font-size: 1.8rem;
+    margin-bottom: 2rem;
   }
 
   &__ratings {
