@@ -16,11 +16,12 @@ export default function BookSearch() {
   }
 
   async function handleSearchClick() {
-    // const data = await fetchBookData(bookSearchValue);
+    const goodreadsdata = await fetchBookData(bookSearchValue);
     const data = await searchBooks({ text: bookSearchValue });
     if (data.items) {
       setBookResponseData(data.items);
     }
+    console.log("good reads:", JSON.stringify(goodreadsdata.GoodreadsResponse));
   }
 
   function handleSubmit(e) {

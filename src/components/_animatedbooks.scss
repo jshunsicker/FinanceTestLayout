@@ -5,6 +5,8 @@ $grey: rgba(0, 0, 0, 0.65);
   padding: 0 !important;
   height: 100%;
   width: 100%;
+  font-family: $font-heading;
+  font-size: 1.7rem;
 
   &__container {
     height: 100%;
@@ -13,6 +15,11 @@ $grey: rgba(0, 0, 0, 0.65);
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
+    position: relative;
+
+    &--bookdetail {
+      background-image: url(/img/paper_2.png);
+    }
   }
   &__top-menu {
     grid-column: 1 / -1;
@@ -29,6 +36,9 @@ $grey: rgba(0, 0, 0, 0.65);
     display: flex;
     grid-column: 1 / 3;
     justify-self: center;
+    cursor: pointer;
+    font-weight: bold;
+
     &--menu {
       position: relative;
       height: 2.2rem;
@@ -39,7 +49,7 @@ $grey: rgba(0, 0, 0, 0.65);
 
     &--author {
       font-family: $font-heading;
-      font-size: 1.6rem;
+      //   font-size: 1.6rem;
       color: $grey;
       margin: 0 1rem;
     }
@@ -52,7 +62,13 @@ $grey: rgba(0, 0, 0, 0.65);
       align-content: center;
       align-self: center;
       border-bottom: 1px solid $grey;
-      grid-column-end: 12;
+      position: absolute;
+      top: 3%;
+      right: 6%;
+
+      &--shrunk {
+        width: 2.5rem;
+      }
     }
     &-icon {
       transition: all 0.3s;
@@ -72,17 +88,50 @@ $grey: rgba(0, 0, 0, 0.65);
   &__side-menu {
     grid-column: 1;
     grid-row: 2 / -1;
-    // background-color: blue;
+    // background-color: skyblue;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
+  &__side-quote {
+    width: 100%;
+    min-width: 35rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0 6rem;
+    position: relative;
+    bottom: 10rem;
+    left: 5rem;
+  }
+
+  &__quote,
+  &__quote--author {
+    color: rgba(0, 0, 0, 0.65);
+    font-family: $font-heading;
+    display: block;
+    
+    line-height: 1.8;
+  }
+  &__quote {
+    overflow: hidden;
+    font-size: 2.2rem;
+    &--author {
+      font-size: 1.7rem;
+    }
+  }
+
   &__icon {
     height: 3rem;
     width: 3rem;
     fill: $grey;
+
+    &--quote {
+      height: 5rem;
+      width: 5rem;
+      fill: currentColor;
+    }
 
     &--star {
       height: 1.5rem;
@@ -133,16 +182,16 @@ $grey: rgba(0, 0, 0, 0.65);
     justify-content: center;
     position: relative;
 
-    &::before {
-      content: "";
-      position: absolute;
-      height: 60%;
-      width: 60%;
-      left: 8%;
-      top: 8%;
-      background-color: lighten(tan, 15%);
-      border-radius: 0.5rem;
-    }
+    // &::before {
+    //   content: "";
+    //   position: absolute;
+    //   height: 60%;
+    //   width: 60%;
+    //   left: 8%;
+    //   top: 8%;
+    //   background-color: lighten(tan, 15%);
+    //   border-radius: 0.5rem;
+    // }
   }
 
   &__title {
@@ -199,6 +248,87 @@ $grey: rgba(0, 0, 0, 0.65);
     &:hover {
       font-weight: bold;
     }
+  }
+
+  &__book-detail-section {
+    justify-content: inherit;
+  }
+
+  &__book-detail-wrapper {
+    background: $color-white;
+    display: flex;
+    margin: 8%;
+    height: 65%;
+    border-radius: 5px;
+  }
+
+  &__book-detail {
+    padding: 7rem 2rem 2rem 14rem;
+    position: relative;
+    flex: 1 1 70%;
+    border-right: 2px solid $color-grey;
+
+    &-img {
+      position: absolute;
+      top: 25%;
+      left: -6%;
+      transform: scale(1.2);
+      box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.1);
+    }
+
+    &-title {
+      font-size: 4rem;
+    }
+
+    &-author {
+      font-weight: bold;
+      margin: 3rem 0;
+    }
+
+    &-label {
+      color: darken(#ccc, 1%);
+      display: block;
+    }
+  }
+
+  &__book-publisher-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 5rem 0;
+  }
+
+  &__book-preview-menu {
+    flex: 1 1;
+
+    display: flex;
+  }
+
+  &__book-preview-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    padding: 0 5rem;
+  }
+
+  &__menu-option {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  svg ~ &__menu-label {
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  &__menu-label {
+    display: block;
+  }
+
+  &__book-excerpt {
+    display: none;
   }
 
   &__audible {
