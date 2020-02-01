@@ -4,6 +4,8 @@
   grid-row: 2 / -1;
   background: $color-primary;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  //the sliding pabel on the animated book page needs this
+  z-index: 20;
 
   &__list {
     border-top: 1px solid darken($color-grey-dark, 30%);
@@ -14,8 +16,6 @@
   a {
     color: $color-grey-dark;
   }
-
-  
 
   &__item {
     padding: 1.5rem 3rem;

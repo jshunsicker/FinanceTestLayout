@@ -1,4 +1,4 @@
-$grey: rgba(0, 0, 0, 0.65);
+$grey: rgba(0, 0, 0, 0.75);
 
 .bp {
   background: $color-white !important;
@@ -16,9 +16,16 @@ $grey: rgba(0, 0, 0, 0.65);
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
     position: relative;
+    transition: all 0.2s;
 
     &--bookdetail {
       background-image: url(/img/paper_2.png);
+    }
+
+    &--hide-left {
+      display: block;
+      position: absolute;
+      left: -1000rem;
     }
   }
   &__top-menu {
@@ -43,13 +50,14 @@ $grey: rgba(0, 0, 0, 0.65);
       position: relative;
       height: 2.2rem;
       width: 2.2rem;
-      top: 0.2rem;
+      top: 0.4rem;
       fill: $grey;
     }
 
     &--author {
       font-family: $font-heading;
-      //   font-size: 1.6rem;
+      font-size: 2rem;
+      font-weight: bold;
       color: $grey;
       margin: 0 1rem;
     }
@@ -57,17 +65,18 @@ $grey: rgba(0, 0, 0, 0.65);
 
   &__search {
     &-wrapper {
-      transition: all 0.3s;
+      transition: max-width 0.4s ease-in;
       display: flex;
       align-content: center;
       align-self: center;
       border-bottom: 1px solid $grey;
       position: absolute;
       top: 3%;
-      right: 6%;
+      right: 8%;
+      max-width: 20rem;
 
       &--shrunk {
-        width: 2.5rem;
+        max-width: 2.65rem;
       }
     }
     &-icon {
@@ -82,6 +91,7 @@ $grey: rgba(0, 0, 0, 0.65);
       transition: all 0.3s;
       background: none;
       border: none;
+      max-width: 100%;
     }
   }
 
@@ -111,7 +121,7 @@ $grey: rgba(0, 0, 0, 0.65);
     color: rgba(0, 0, 0, 0.65);
     font-family: $font-heading;
     display: block;
-    
+
     line-height: 1.8;
   }
   &__quote {
@@ -182,35 +192,54 @@ $grey: rgba(0, 0, 0, 0.65);
     justify-content: center;
     position: relative;
 
-    // &::before {
-    //   content: "";
-    //   position: absolute;
-    //   height: 60%;
-    //   width: 60%;
-    //   left: 8%;
-    //   top: 8%;
-    //   background-color: lighten(tan, 15%);
-    //   border-radius: 0.5rem;
-    // }
+    &::before {
+      content: "";
+      position: absolute;
+      border-radius: 0.5rem;
+      transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+      top: 13%;
+      height: 65.5%;
+      width: 60%;
+    }
+
+    &--list-view {
+      &::before {       
+        left: 8%;
+        background-color: lighten(tan, 15%);
+      }
+    }
+
+    &--hidden {
+      &::before {
+        left: -25%;
+        background-color: lighten(tan, 15%);
+      }
+    }
   }
 
   &__title {
     position: absolute;
     top: 14%;
     left: 4%;
-    font-size: 4rem;
+    font-size: 4.5rem;
     font-weight: 200;
   }
 
   &__book-list {
+    transition: transform 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s ;
     display: flex;
     align-content: center;
     margin-bottom: 4rem;
     z-index: 1;
+
+    &--hidden {
+      transform: translateX(50%);
+    }
   }
 
   &__book-img {
     padding: 0 2rem;
+    cursor: pointer;
   }
 
   &__book-card {
@@ -263,15 +292,15 @@ $grey: rgba(0, 0, 0, 0.65);
   }
 
   &__book-detail {
-    padding: 7rem 2rem 2rem 14rem;
+    padding: 4rem 2rem 15rem 14rem;
     position: relative;
     flex: 1 1 70%;
     border-right: 2px solid $color-grey;
 
     &-img {
       position: absolute;
-      top: 25%;
-      left: -6%;
+      top: 13rem;
+      left: -6rem;
       transform: scale(1.2);
       box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.1);
     }
@@ -286,7 +315,8 @@ $grey: rgba(0, 0, 0, 0.65);
     }
 
     &-label {
-      color: darken(#ccc, 1%);
+      color: darken(skyblue, 20%);
+      // color: darken(#ccc, 1%);
       display: block;
     }
   }

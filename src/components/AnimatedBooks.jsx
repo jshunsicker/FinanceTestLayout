@@ -1,29 +1,73 @@
 import React from "react";
 import { tadWilliamsBookData } from "../data/tadWilliamsBookData";
 import cn from "classnames";
+import styled from "styled-components";
 const bookResponseData = tadWilliamsBookData;
 export default function AnimatedBooks() {
-  const [currentBook, setCurrentBook] = React.useState({
-    ...tadWilliamsBookData.items[0]
-  });
+  // const [currentBook, setCurrentBook] = React.useState({
+  //   ...tadWilliamsBookData.items[0]
+  // });
+  const [currentBook, setCurrentBook] = React.useState(null);
+  const [showOrange, setShowOrange] = React.useState(false);
+  console.log("currentbook:", currentBook);
+
+  const orangeStyle = !!currentBook
+    ? {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        background: "url(/img/paper_2.png)",
+        zIndex: 3
+      }
+    : {
+        position: "absolute",
+        top: 0,
+        left: "-100%",
+        background: "url(/img/paper_2.png)",
+        zIndex: 3
+      };
+
   return (
     <div
-      className={cn("bp__container", {
-        "bp__container--bookdetail": currentBook
-      })}
+      style={{
+        position: "relative"
+      }}
+      className={cn("bp__container")}
     >
       <SearchBar bookDetailView={!!currentBook} />
-      {/* <BookDetailView googleBook={currentBook} /> */}
-      <BookTopMenu />
-      <BookSideMenu />
-      <BookListMainContent
-        bookResponseData={bookResponseData}
-        handleBookClick={setCurrentBook}
-      />
-    </div>
 
+      <Container
+        className="div2"
+        style={orangeStyle}
+        onClick={() => setShowOrange(!showOrange)}
+      >
+        <BookDetailView
+          googleBook={currentBook}
+          handleClearBook={() => setCurrentBook(null)}
+        />
+      </Container>
+      <Container className="div1">
+        <BookTopMenu />
+        <BookSideMenu />
+        <BookListMainContent
+          bookResponseData={bookResponseData}
+          handleBookClick={setCurrentBook}
+          hasCurrentBook={!!currentBook}
+        />
+      </Container>
+    </div>
   );
 }
+
+export const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  transition: all 1.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+`;
 
 export const fetchSelfLinkData = async link => {
   if (link) {
@@ -34,14 +78,14 @@ export const fetchSelfLinkData = async link => {
     });
   }
 };
-
 export const BookDetailView = props => {
   const [selfLinkData, setSelfLinkData] = React.useState(null);
-  const { googleBook } = props;
-  const selfLink = googleBook.selfLink;
+  const { googleBook = {}, handleClearBook } = props;
+  const hasCurrentBook = !!googleBook;
+  const selfLink = googleBook && googleBook.selfLink;
 
-  const book = googleBook.volumeInfo;
-  const bookSearch = googleBook.searchInfo;
+  const book = googleBook && googleBook.volumeInfo;
+  const bookSearch = googleBook && googleBook.searchInfo;
 
   React.useEffect(() => {
     if (selfLink) {
@@ -55,23 +99,44 @@ export const BookDetailView = props => {
     }
   }, [selfLink]);
 
-  console.log("selfLinkData:", selfLinkData);
+  const categories =
+    selfLinkData &&
+    selfLinkData.volumeInfo &&
+    selfLinkData.volumeInfo.categories
+      ? selfLinkData.volumeInfo.categories.join(",")
+      : book
+      ? book.categories.join(", ")
+      : "";
 
-  const categories = selfLinkData
-    ? selfLinkData.volumeInfo.categories.join(",")
-    : book.categories.join(", ");
+  console.log("book:", book);
+
+  const textSnippet = book ? book.textSnippet : "";
+  const author = book ? getAuthor(book.description) : "";
+  const bookImage =
+    book && book.imageLinks ? book.imageLinks.smallThumbnail : "";
+  const publishDate = book ? formatDate(book.publishedDate) : "";
+  const publisher = book ? book.publisher : "";
+  const previewLink = book ? book.previewLink : "";
+  const bookTitle = book ? book.title : "";
+  const bookAuthor = book ? book.authors[0] : "";
 
   return (
-    // <section className="bp__container bp__container--bookdetail">
-    <>
+    <React.Fragment>
       <section className="bp__top-menu">
         <div className="bp__dropdown">
           <div>
-            <svg className="bp__dropdown--menu">
-              <use href="./img/symbol-defs.svg#icon-arrow-left2" />
-            </svg>
+            <button
+              type="button"
+              id="backButton"
+              onClick={handleClearBook}
+              className="hidden-button"
+            >
+              <svg className="bp__dropdown--menu">
+                <use href="./img/symbol-defs.svg#icon-arrow-left2" />
+              </svg>
+              <span className="bp__dropdown--author">Back</span>
+            </button>
           </div>
-          <span className="bp__dropdown--author">Back</span>
         </div>
       </section>
       <section className="bp__side-menu">
@@ -79,34 +144,30 @@ export const BookDetailView = props => {
           <svg className="bp__icon--quote">
             <use href="./img/symbol-defs.svg#icon-quotes-left" />
           </svg>
-          <span className="bp__quote">{bookSearch.textSnippet}</span>
-          <span className="bp__quote--author">
-            {getAuthor(book.description)}
-          </span>
+          <span className="bp__quote">{textSnippet}</span>
+          <span className="bp__quote--author">{author}</span>
         </div>
       </section>
-      <section className="bp__content bp__book-detail-section">
+      <section className={cn("bp__content", "bp__book-detail-section")}>
         <div className="bp__book-detail-wrapper">
           <div className="bp__book-detail">
             <img
               className="bp__book-detail-img"
               alt="book-cover"
-              src={book.imageLinks.smallThumbnail}
+              src={bookImage}
             />
-            <h1 className="bp__book-detail-title">{book.title}</h1>
-            <p className="bp__book-detail-author">{book.authors[0]}</p>
+            <h1 className="bp__book-detail-title">{bookTitle}</h1>
+            <p className="bp__book-detail-author">{bookAuthor}</p>
             <div className="bp__book-publisher-grid">
               <div className="bp__book-detail-publishers">
                 <span className="bp__book-detail-label">
                   Originally Published
                 </span>
-                <span className="bp__book-detail-value">
-                  {formatDate(book.publishedDate)}
-                </span>
+                <span className="bp__book-detail-value">{publishDate}</span>
               </div>
               <div className="bp__book-detail-publishers">
                 <span className="bp__book-detail-label">Publisher</span>
-                <span className="bp__book-detail-value">{book.publisher}</span>
+                <span className="bp__book-detail-value">{publisher}</span>
               </div>
             </div>
 
@@ -140,7 +201,7 @@ export const BookDetailView = props => {
               <p>Book text here</p>
               <a
                 className="bp__link--excerpt"
-                href={book.previewLink}
+                href={previewLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -150,8 +211,7 @@ export const BookDetailView = props => {
           </div>
         </div>
       </section>
-    </>
-    // {/* </section> */}
+    </React.Fragment>
   );
 };
 
@@ -207,6 +267,9 @@ export const SearchBar = props => {
   const { bookDetailView } = props;
   return (
     <div
+      style={{
+        zIndex: 5
+      }}
       className={cn("bp__search-wrapper", {
         "bp__search-wrapper--shrunk": bookDetailView
       })}
@@ -222,19 +285,32 @@ export const SearchBar = props => {
 };
 
 export const BookListMainContent = props => {
-  const { bookResponseData, handleBookClick } = props;
+  const [currentBookId, setBookId] = React.useState(null);
+  const { bookResponseData, handleBookClick, hasCurrentBook } = props;
   return (
-    <section className="bp__content">
+    <section
+      className={cn("bp__content", " bp__content--list-view", {
+        "bp__content--hidden": hasCurrentBook
+      })}
+    >
       <h1 className="bp__title">Most Popular Picks</h1>
-      <div className="bp__book-list">
+      <div
+        className={cn("bp__book-list", {
+          "bp__book-list--hidden": hasCurrentBook
+        })}
+      >
         {bookResponseData.items.map(bookResponse => {
           const book = bookResponse.volumeInfo;
+          console.log("book?:", bookResponse);
           return (
             <div className="bp__book-card">
               <img
                 src={book.imageLinks.smallThumbnail}
                 alt={`${book.title}`}
-                onClick={() => handleBookClick(book)}
+                onClick={() => {
+                  setBookId(bookResponse.id);
+                  handleBookClick(bookResponse);
+                }}
                 className="bp__book-img"
               />
               <div className="bp__book-info">
