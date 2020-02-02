@@ -4,12 +4,8 @@ import cn from "classnames";
 import styled from "styled-components";
 const bookResponseData = tadWilliamsBookData;
 export default function AnimatedBooks() {
-  // const [currentBook, setCurrentBook] = React.useState({
-  //   ...tadWilliamsBookData.items[0]
-  // });
   const [currentBook, setCurrentBook] = React.useState(null);
-  const [showOrange, setShowOrange] = React.useState(false);
-  console.log("currentbook:", currentBook);
+  const [showDetail, setShowDetail] = React.useState(false);
 
   const orangeStyle = !!currentBook
     ? {
@@ -17,14 +13,27 @@ export default function AnimatedBooks() {
         top: 0,
         left: 0,
         background: "url(/img/paper_2.png)",
-        zIndex: 3
+        // zIndex: 3,
+
+        animation: "animatedBackground 160s linear infinite"
       }
     : {
         position: "absolute",
         top: 0,
         left: "-100%",
         background: "url(/img/paper_2.png)",
-        zIndex: 3
+        // zIndex: 3,
+        animation: "animatedBackground 160s linear infinite"
+      };
+
+  const yellowStyle = !currentBook
+    ? {
+        position: "absolute",
+        top: 0,
+        left: 0
+      }
+    : {
+        left: "-100%"
       };
 
   return (
@@ -39,22 +48,25 @@ export default function AnimatedBooks() {
       <Container
         className="div2"
         style={orangeStyle}
-        onClick={() => setShowOrange(!showOrange)}
+        onClick={() => setShowDetail(!showDetail)}
       >
         <BookDetailView
           googleBook={currentBook}
           handleClearBook={() => setCurrentBook(null)}
+          // handleClearBook={() => setShowDetail(!showDetail)}
         />
       </Container>
-      <Container className="div1">
+      <Container className="div1" style={yellowStyle}>
         <BookTopMenu />
         <BookSideMenu />
-        <BookListMainContent
-          bookResponseData={bookResponseData}
-          handleBookClick={setCurrentBook}
-          hasCurrentBook={!!currentBook}
-        />
       </Container>
+
+      <BookListMainContent
+        bookResponseData={bookResponseData}
+        handleBookClick={setCurrentBook}
+        hasCurrentBook={!!currentBook}
+        currentBook={currentBook}
+      />
     </div>
   );
 }
@@ -151,11 +163,11 @@ export const BookDetailView = props => {
       <section className={cn("bp__content", "bp__book-detail-section")}>
         <div className="bp__book-detail-wrapper">
           <div className="bp__book-detail">
-            <img
+            {/* <img
               className="bp__book-detail-img"
               alt="book-cover"
               src={bookImage}
-            />
+            /> */}
             <h1 className="bp__book-detail-title">{bookTitle}</h1>
             <p className="bp__book-detail-author">{bookAuthor}</p>
             <div className="bp__book-publisher-grid">
@@ -286,7 +298,16 @@ export const SearchBar = props => {
 
 export const BookListMainContent = props => {
   const [currentBookId, setBookId] = React.useState(null);
-  const { bookResponseData, handleBookClick, hasCurrentBook } = props;
+  const [showPulse, togglePulse] = React.useState(null);
+  const { bookResponseData, handleBookClick, hasCurrentBook, currentBook } = props;
+
+  React.useEffect(() => {
+    togglePulse(true);
+
+    return () => {
+      togglePulse(false);
+    };
+  }, [currentBookId, showPulse]);
   return (
     <section
       className={cn("bp__content", " bp__content--list-view", {
@@ -301,18 +322,34 @@ export const BookListMainContent = props => {
       >
         {bookResponseData.items.map(bookResponse => {
           const book = bookResponse.volumeInfo;
-          console.log("book?:", bookResponse);
+          const isCurrentbook = currentBook && currentBook.id === bookResponse.id;
           return (
-            <div className="bp__book-card">
-              <img
-                src={book.imageLinks.smallThumbnail}
-                alt={`${book.title}`}
-                onClick={() => {
-                  setBookId(bookResponse.id);
-                  handleBookClick(bookResponse);
-                }}
-                className="bp__book-img"
-              />
+            <div
+              className={cn("bp__book-card", {
+                "bp__book-card--selected": isCurrentbook,
+                "bp__book-card--hidden" : !isCurrentbook && hasCurrentBook
+              })}
+            >
+              <div className="bp__book-img--border">
+                <img
+                  src={book.imageLinks.smallThumbnail}
+                  alt={`${book.title}`}
+                  onClick={() => {
+                    setBookId(bookResponse.id);
+                    handleBookClick(bookResponse);
+                  }}
+                  className={cn("bp__book-img", {
+                    "bp__book-img--active": isCurrentbook
+                  })}
+                />
+                <span
+                  className={cn({
+                    "bp__book-img--pulse":
+                      showPulse && bookResponse.id === currentBookId
+                  })}
+                ></span>
+              </div>
+
               <div className="bp__book-info">
                 <h2 className="bp__book-title">{book.title}</h2>
                 <div>
