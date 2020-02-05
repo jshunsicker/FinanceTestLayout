@@ -264,13 +264,13 @@ $grey: rgba(0, 0, 0, 0.75);
       }
     }
 
-    &--active {
-      position: fixed;
-      transform: scale(1.2);
-      top: 40%;
-      left: 37%;
-      z-index: 5;
-    }
+    // &--active {
+    //   position: fixed;
+    //   transform: scale(1.2);
+    //   top: 40%;
+    //   left: 37%;
+    //   z-index: 5;
+    // }
 
     // &:active ~ &--pulse::after{
     //   animation: pulse 1s ease;
@@ -295,27 +295,31 @@ $grey: rgba(0, 0, 0, 0.75);
   }
 
   &__book-card {
+    transition: all 1s;
     display: grid;
     grid-template-columns: 1fr 3fr;
     padding: 2rem;
     grid-gap: 0.3rem;
-    // position: relative;
+    opacity: 1;
 
     &--selected {
-      position: static;
-
       .bp__book-info {
-        transform: scale(0);
+        // transform: scale(0);
+        // opacity: 0;
+        z-index: -1;
       }
     }
 
     &--hidden {
       transform: translateX(400%);
+      opacity: 0;
     }
   }
 
   &__book-info {
     // padding: 2rem;
+    opacity: 1;
+    transition: all .75s ease-in;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -354,13 +358,25 @@ $grey: rgba(0, 0, 0, 0.75);
     margin: 8%;
     height: 65%;
     border-radius: 5px;
+    overflow: hidden;
   }
 
   &__book-detail {
+    transition: all 1s;
+    background-color: blue;
     padding: 4rem 2rem 15rem 14rem;
     position: relative;
     flex: 1 1 70%;
     border-right: 2px solid $color-grey;
+    visibility: visible;
+
+    &--preview {
+      // transform: translateX(-100%);
+      // transform: translateX(-100%);
+      flex: 0;
+      padding: 0;
+      visibility: collapse;
+    }
 
     &-img {
       position: absolute;
@@ -393,9 +409,15 @@ $grey: rgba(0, 0, 0, 0.75);
   }
 
   &__book-preview-menu {
+    transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
     flex: 1 1;
 
     display: flex;
+
+    &--preview {
+      border-right: 2px solid $color-grey;
+      // transform: translateX(-81rem);
+    }
   }
 
   &__book-preview-options {
@@ -411,6 +433,7 @@ $grey: rgba(0, 0, 0, 0.75);
     width: 100%;
     text-align: center;
     cursor: pointer;
+    z-index: 2;
   }
 
   svg ~ &__menu-label {
@@ -423,7 +446,16 @@ $grey: rgba(0, 0, 0, 0.75);
   }
 
   &__book-excerpt {
-    display: none;
+    transition: all 1s;
+    // transform: translateX(100%);
+    visibility: hidden;
+
+    &--preview {
+      // flex: 1 1 80%;
+      flex: 3;
+      visibility: visible;
+      transform: translateX(0);
+    }
   }
 
   &__audible {

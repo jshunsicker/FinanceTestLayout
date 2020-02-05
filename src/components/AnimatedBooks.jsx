@@ -92,6 +92,8 @@ export const fetchSelfLinkData = async link => {
 };
 export const BookDetailView = props => {
   const [selfLinkData, setSelfLinkData] = React.useState(null);
+  const [showPreview, togglePreview] = React.useState(false);
+
   const { googleBook = {}, handleClearBook } = props;
   const hasCurrentBook = !!googleBook;
   const selfLink = googleBook && googleBook.selfLink;
@@ -162,12 +164,11 @@ export const BookDetailView = props => {
       </section>
       <section className={cn("bp__content", "bp__book-detail-section")}>
         <div className="bp__book-detail-wrapper">
-          <div className="bp__book-detail">
-            {/* <img
-              className="bp__book-detail-img"
-              alt="book-cover"
-              src={bookImage}
-            /> */}
+          <div
+            className={cn("bp__book-detail", {
+              "bp__book-detail--preview": showPreview
+            })}
+          >
             <h1 className="bp__book-detail-title">{bookTitle}</h1>
             <p className="bp__book-detail-author">{bookAuthor}</p>
             <div className="bp__book-publisher-grid">
@@ -186,7 +187,11 @@ export const BookDetailView = props => {
             <span className="bp__book-detail-label">Categories</span>
             <span className="bp__book-detail-value">{categories}</span>
           </div>
-          <div className="bp__book-preview-menu">
+          <div
+            className={cn("bp__book-preview-menu", {
+              "bp__book-preview-menu--preview": showPreview
+            })}
+          >
             <div className="bp__book-preview-options">
               <div className="bp__menu-option">
                 <svg className="bp__icon--save bp__icon">
@@ -194,7 +199,10 @@ export const BookDetailView = props => {
                 </svg>
                 <span className="bp__menu-label">Save</span>
               </div>
-              <div className="bp__menu-option">
+              <div
+                className="bp__menu-option"
+                onClick={() => togglePreview(!showPreview)}
+              >
                 <svg className="bp__icon--preview bp__icon">
                   <use href="./img/symbol-defs.svg#icon-play2" />
                 </svg>
@@ -207,19 +215,23 @@ export const BookDetailView = props => {
                 <span className="bp__menu-label">Get Book</span>
               </div>
             </div>
-            <div className="bp__book-excerpt">
-              <h1 className="bp__book-excerpt-title">Excerpt </h1>
-              <span className="bp__book-detail-label">Book 1 - Chapter 1</span>
-              <p>Book text here</p>
-              <a
-                className="bp__link--excerpt"
-                href={previewLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                See full exerpt
-              </a>
-            </div>
+          </div>
+          <div
+            className={cn("bp__book-excerpt", {
+              "bp__book-excerpt--preview": showPreview
+            })}
+          >
+            <h1 className="bp__book-excerpt-title">Excerpt </h1>
+            <span className="bp__book-detail-label">Book 1 - Chapter 1</span>
+            <p>Book text here</p>
+            <a
+              className="bp__link--excerpt"
+              href={previewLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              See full exerpt
+            </a>
           </div>
         </div>
       </section>
@@ -299,7 +311,12 @@ export const SearchBar = props => {
 export const BookListMainContent = props => {
   const [currentBookId, setBookId] = React.useState(null);
   const [showPulse, togglePulse] = React.useState(null);
-  const { bookResponseData, handleBookClick, hasCurrentBook, currentBook } = props;
+  const {
+    bookResponseData,
+    handleBookClick,
+    hasCurrentBook,
+    currentBook
+  } = props;
 
   React.useEffect(() => {
     togglePulse(true);
@@ -320,15 +337,24 @@ export const BookListMainContent = props => {
           "bp__book-list--hidden": hasCurrentBook
         })}
       >
-        {bookResponseData.items.map(bookResponse => {
+        {bookResponseData.items.map((bookResponse, index) => {
           const book = bookResponse.volumeInfo;
-          const isCurrentbook = currentBook && currentBook.id === bookResponse.id;
+          const isCurrentbook =
+            currentBook && currentBook.id === bookResponse.id;
+          const horizontalShift = 20.3333 - 31.556 * index;
+
+          const currentStyle = isCurrentbook
+            ? {
+                transform: `scale(1.2) translate(${horizontalShift}rem, -1.66667vh)`
+              }
+            : {};
           return (
             <div
               className={cn("bp__book-card", {
                 "bp__book-card--selected": isCurrentbook,
-                "bp__book-card--hidden" : !isCurrentbook && hasCurrentBook
+                "bp__book-card--hidden": !isCurrentbook && hasCurrentBook
               })}
+              style={currentStyle}
             >
               <div className="bp__book-img--border">
                 <img
