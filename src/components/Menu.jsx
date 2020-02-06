@@ -7,6 +7,7 @@ import TestTablePage from "../pages/TestTablePage";
 import CardFlipPage from "../pages/CardFlipPage";
 import Dashboard from "../pages/Dashboard";
 import AnimatedBookPage from "../pages/AnimatedBookPage";
+import TestSliderPage from "../pages/TestSliderPage";
 
 export default function Menu() {
   const [activeMenuItem, setActiveMenuItem] = useState("Home");
@@ -40,6 +41,11 @@ export default function Menu() {
       label: "Test Table",
       icon: "table2",
       route: "/testtable"
+    },
+    slider: {
+      label: "Slider Test",
+      icon: "map",
+      route: "/slide"
     },
     settings: {
       label: "Settings",
@@ -100,6 +106,9 @@ export default function Menu() {
         </Route>
         <Route path="/cardflip">
           <CardFlipPage />
+        </Route>
+        <Route path="/slide">
+          <TestSliderPage />
         </Route>
         <Route path="/">
           <Dashboard />

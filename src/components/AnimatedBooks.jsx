@@ -165,7 +165,8 @@ export const BookDetailView = props => {
       <section className={cn("bp__content", "bp__book-detail-section")}>
         <div className="bp__book-detail-wrapper">
           <div
-            className={cn("bp__book-detail", {
+            id="bookDetail"
+            className={cn("bp__book-detail book-slide", {
               "bp__book-detail--preview": showPreview
             })}
           >
@@ -188,7 +189,7 @@ export const BookDetailView = props => {
             <span className="bp__book-detail-value">{categories}</span>
           </div>
           <div
-            className={cn("bp__book-preview-menu", {
+            className={cn("bp__book-preview-menu book-slide", {
               "bp__book-preview-menu--preview": showPreview
             })}
           >
@@ -206,7 +207,9 @@ export const BookDetailView = props => {
                 <svg className="bp__icon--preview bp__icon">
                   <use href="./img/symbol-defs.svg#icon-play2" />
                 </svg>
-                <span className="bp__menu-label">Preview</span>
+                <a href={showPreview ? "#bookExcerpt" : "#bookDetail"}>
+                  <span className="bp__menu-label">Preview</span>
+                </a>
               </div>
               <div className="bp__menu-option">
                 <svg className="bp__icon--get-book bp__icon">
@@ -217,7 +220,8 @@ export const BookDetailView = props => {
             </div>
           </div>
           <div
-            className={cn("bp__book-excerpt", {
+            id="bookExcerpt"
+            className={cn("bp__book-excerpt book-slide", {
               "bp__book-excerpt--preview": showPreview
             })}
           >
