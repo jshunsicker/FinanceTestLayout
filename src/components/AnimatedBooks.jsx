@@ -13,8 +13,7 @@ export default function AnimatedBooks() {
         top: 0,
         left: 0,
         background: "url(/img/paper_2.png)",
-        // zIndex: 3,
-
+        zIndex: 1,
         animation: "animatedBackground 160s linear infinite"
       }
     : {
@@ -22,7 +21,7 @@ export default function AnimatedBooks() {
         top: 0,
         left: "-100%",
         background: "url(/img/paper_2.png)",
-        // zIndex: 3,
+        zIndex: 1,
         animation: "animatedBackground 160s linear infinite"
       };
 
@@ -44,7 +43,10 @@ export default function AnimatedBooks() {
       className={cn("bp__container")}
     >
       <SearchBar bookDetailView={!!currentBook} />
-
+      <Container className="div1" style={yellowStyle}>
+        <BookTopMenu />
+        <BookSideMenu />
+      </Container>
       <Container
         className="div2"
         style={orangeStyle}
@@ -56,11 +58,6 @@ export default function AnimatedBooks() {
           // handleClearBook={() => setShowDetail(!showDetail)}
         />
       </Container>
-      <Container className="div1" style={yellowStyle}>
-        <BookTopMenu />
-        <BookSideMenu />
-      </Container>
-
       <BookListMainContent
         bookResponseData={bookResponseData}
         handleBookClick={setCurrentBook}
@@ -411,6 +408,7 @@ export const BookListMainContent = props => {
             </div>
           );
         })}
+        {/* </div> */}
       </div>
     </section>
   );
