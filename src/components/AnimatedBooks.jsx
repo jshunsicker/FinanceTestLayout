@@ -346,38 +346,43 @@ export const BookListMainContent = props => {
 
           const currentStyle = isCurrentbook
             ? {
-                transform: `scale(1.2) translate(${horizontalShift}rem, -1.66667vh)`
+                transform: `scale(1.2) translate(${horizontalShift}rem, -3.66667vh)`
               }
             : {};
           return (
-            <div
-              className={cn("bp__book-card", {
-                "bp__book-card--selected": isCurrentbook,
-                "bp__book-card--hidden": !isCurrentbook && hasCurrentBook
-              })}
-              style={currentStyle}
-            >
-              <div className="bp__book-img--border">
-                <img
-                  src={book.imageLinks.smallThumbnail}
-                  alt={`${book.title}`}
-                  onClick={() => {
-                    setBookId(bookResponse.id);
-                    handleBookClick(bookResponse);
-                  }}
-                  className={cn("bp__book-img", {
-                    "bp__book-img--active": isCurrentbook
-                  })}
-                />
-                <span
-                  className={cn({
-                    "bp__book-img--pulse":
-                      showPulse && bookResponse.id === currentBookId
-                  })}
-                ></span>
+            <React.Fragment>
+              <div
+                className={cn("bp__book-card", {
+                  "bp__book-card--selected": isCurrentbook,
+                  "bp__book-card--hidden": !isCurrentbook && hasCurrentBook
+                })}
+                style={currentStyle}
+              >
+                <div className="bp__book-img--border">
+                  <img
+                    src={book.imageLinks.smallThumbnail}
+                    alt={`${book.title}`}
+                    onClick={() => {
+                      setBookId(bookResponse.id);
+                      handleBookClick(bookResponse);
+                    }}
+                    className={cn("bp__book-img", {
+                      "bp__book-img--active": isCurrentbook
+                    })}
+                  />
+                  <span
+                    className={cn({
+                      "bp__book-img--pulse":
+                        showPulse && bookResponse.id === currentBookId
+                    })}
+                  ></span>
+                </div>
               </div>
-
-              <div className="bp__book-info">
+              <div
+                className={cn("bp__book-info", {
+                  "bp__book-info--hidden": hasCurrentBook
+                })}
+              >
                 <h2 className="bp__book-title">{book.title}</h2>
                 <div>
                   <div className="bp__ratings">
@@ -405,7 +410,7 @@ export const BookListMainContent = props => {
                   </a>
                 </div>
               </div>
-            </div>
+            </React.Fragment>
           );
         })}
         {/* </div> */}

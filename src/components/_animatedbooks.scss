@@ -1,5 +1,7 @@
 $grey: rgba(0, 0, 0, 0.75);
 
+$slide-right-transition: all 1s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
 .bp {
   background: $color-white !important;
   padding: 0 !important;
@@ -70,7 +72,7 @@ $grey: rgba(0, 0, 0, 0.75);
 
   &__search {
     &-wrapper {
-      transition: max-width 0.4s ease-in;
+      transition: max-width 1s cubic-bezier(0.55, 0.055, 0.675, 0.19);
       display: flex;
       align-content: center;
       align-self: center;
@@ -231,10 +233,10 @@ $grey: rgba(0, 0, 0, 0.75);
     }
   }
 
-  &__list-content{
+  &__list-content {
     transition: transform 2 ease 0.2s;
-    
-    &--hidden{
+
+    &--hidden {
       transform: translateX(100%);
     }
 
@@ -255,12 +257,14 @@ $grey: rgba(0, 0, 0, 0.75);
     transition: transform 1.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
     display: flex;
     align-content: center;
-    margin-bottom: 4rem;
+    position: relative;
+    bottom: 15rem;
     z-index: 1;
+    height: 0;
 
-    // &--hidden {
-    //   transform: translateX(100%);
-    // }
+    &--hidden {
+      // transform: translateX(100%);
+    }
   }
 
   &__book-img {
@@ -275,20 +279,6 @@ $grey: rgba(0, 0, 0, 0.75);
         transform: scale(1.1);
       }
     }
-
-    // &--active {
-    //   position: fixed;
-    //   transform: scale(1.2);
-    //   top: 40%;
-    //   left: 37%;
-    //   z-index: 5;
-    // }
-
-    // &:active ~ &--pulse::after{
-    //   animation: pulse 1s ease;
-    //   animation-iteration-count: 1;
-    //   animation-duration: 2s;
-    // }
 
     &--pulse {
       &::after {
@@ -307,20 +297,12 @@ $grey: rgba(0, 0, 0, 0.75);
   }
 
   &__book-card {
-    transition: all 1s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: $slide-right-transition;
     display: grid;
     grid-template-columns: 1fr 3fr;
     padding: 2rem;
     grid-gap: 0.3rem;
     opacity: 1;
-
-    &--selected {
-      .bp__book-info {
-        // transform: scale(0);
-        opacity: 0;
-        z-index: -1;
-      }
-    }
 
     &--hidden {
       transform: translateX(200%);
@@ -333,11 +315,21 @@ $grey: rgba(0, 0, 0, 0.75);
   &__book-info {
     // padding: 2rem;
     opacity: 1;
-    transition: all 0.75s ease-in;
+    transition: $slide-right-transition;
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-width: 15rem;
+    position: relative;
+    margin: auto;
+    top: 5rem;
+
+    &--hidden {
+      transform: translateX(200%);
+      opacity: 0;
+      z-index: -1;
+      visibility: hidden;
+    }
   }
 
   &__book-title {
