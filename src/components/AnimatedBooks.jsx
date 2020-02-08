@@ -2,6 +2,9 @@ import React from "react";
 import { tadWilliamsBookData } from "../data/tadWilliamsBookData";
 import cn from "classnames";
 import styled from "styled-components";
+import { SearchBar } from "./AnimatedBook/SearchBar";
+import { BookTopMenu } from "./AnimatedBook/BookTopMenu";
+import { BookSideMenu } from "./AnimatedBook/SideMenu";
 const bookResponseData = tadWilliamsBookData;
 export default function AnimatedBooks() {
   const [currentBook, setCurrentBook] = React.useState(null);
@@ -122,7 +125,11 @@ export const BookDetailView = props => {
   console.log("book:", book);
 
   const textSnippet = book ? book.textSnippet : "";
-  const author = book ? getAuthor(book.description) : "";
+  const quote = book ? getAllQuotes(book.description) : "";
+
+  console.log("quotes::", quote);
+
+  const bookHasQuote = book ? hasQuote(book.description) : false;
   const bookImage =
     book && book.imageLinks ? book.imageLinks.smallThumbnail : "";
   const publishDate = book ? formatDate(book.publishedDate) : "";
@@ -152,11 +159,20 @@ export const BookDetailView = props => {
       </section>
       <section className="bp__side-menu">
         <div className="bp__side-quote">
-          <svg className="bp__icon--quote">
-            <use href="./img/symbol-defs.svg#icon-quotes-left" />
-          </svg>
-          <span className="bp__quote">{textSnippet}</span>
-          <span className="bp__quote--author">{author}</span>
+          {bookHasQuote && (
+            <svg className="bp__icon--quote">
+              <use href="./img/symbol-defs.svg#icon-quotes-left" />
+            </svg>
+          )}
+
+          <div
+            className={cn("bp__quote", {
+              "bp__quote--description": !bookHasQuote
+            })}
+          >
+            <span>{quote}</span>
+          </div>
+          {/* <span className="bp__quote--author">{author}</span> */}
         </div>
       </section>
       <section className={cn("bp__content", "bp__book-detail-section")}>
@@ -237,75 +253,6 @@ export const BookDetailView = props => {
         </div>
       </section>
     </React.Fragment>
-  );
-};
-
-export const BookAudibleBar = props => {
-  return (
-    <section className="bp__audible">
-      <audio></audio>
-    </section>
-  );
-};
-
-export const BookSideMenu = props => {
-  return (
-    <section className="bp__side-menu">
-      <div className="bp__icon-links">
-        <div className="bp__icon-links-wrapper">
-          <svg className="bp__icon bp__icon--headphone">
-            <use href="./img/symbol-defs.svg#icon-headphones" />
-          </svg>
-          <svg className="bp__icon bp__icon--book">
-            <use href="./img/symbol-defs.svg#icon-contacts" />
-          </svg>
-          <svg className="bp__icon bp__icon--bookmark">
-            <use href="./img/symbol-defs.svg#icon-th-bookmark" />
-          </svg>
-        </div>
-      </div>
-      <div className="bp__home-icon">
-        <svg className="bp__icon bp__icon--home">
-          <use href="./img/symbol-defs.svg#icon-th-home" />
-        </svg>
-      </div>
-    </section>
-  );
-};
-
-export const BookTopMenu = props => {
-  return (
-    <section className="bp__top-menu">
-      <div className="bp__dropdown">
-        <div>
-          <svg className="bp__dropdown--menu">
-            <use href="./img/symbol-defs.svg#icon-th-menu" />
-          </svg>
-        </div>
-        <span className="bp__dropdown--author">Tad Williams</span>
-      </div>
-    </section>
-  );
-};
-
-export const SearchBar = props => {
-  const { bookDetailView } = props;
-  return (
-    <div
-      style={{
-        zIndex: 5
-      }}
-      className={cn("bp__search-wrapper", {
-        "bp__search-wrapper--shrunk": bookDetailView
-      })}
-    >
-      <div className="bp__search-icon-wrapper">
-        <svg className="bp__search-icon">
-          <use href="./img/symbol-defs.svg#icon-search" />
-        </svg>
-      </div>
-      <input className="bp__search-input" id="search" type="text" />
-    </div>
   );
 };
 
@@ -413,7 +360,6 @@ export const BookListMainContent = props => {
             </React.Fragment>
           );
         })}
-        {/* </div> */}
       </div>
     </section>
   );
@@ -429,6 +375,51 @@ export function formatDate(dateString) {
   });
 }
 
+function hasQuote(description) {
+  return description.indexOf("“") > -1 && description.indexOf("”") > -1;
+}
+
+function getAllQuotes(description) {
+  if (description) {
+    if (hasQuote(description)) {
+      return description
+        .split("“")
+        .filter(quote => quote.indexOf("”") > -1)
+        .map(q => (
+          <>
+            <em>“{splitAuthor(q)}</em>
+            <br />
+          </>
+        ));
+    } else {
+      const firstLetter = description.substring(0, 1);
+      const restOfQuote = description.substring(1);
+      return (
+        <span className="bp__quote--long-text">
+          <span className="bp__quote--large">{firstLetter}</span>
+          {restOfQuote}
+        </span>
+      );
+    }
+  }
+  return "";
+}
+
+const splitAuthor = quote => {
+  const hyphen = quote.indexOf("—");
+
+  const author = quote.substring(hyphen - 1);
+
+  const q = quote.substring(0, hyphen);
+
+  return (
+    <>
+      {q}
+      <br /> <span className="bp__quote--author">{author}</span>
+    </>
+  );
+};
+
 const getFirstQuote = longStringDescription => {
   //find the second occurrence of the open quote and split the array
   const firstQuote = longStringDescription
@@ -437,6 +428,10 @@ const getFirstQuote = longStringDescription => {
     .replace("”", "");
   //remove the second occurence, since stylistically we're using
   //and svg for the air quote
+  const openQuote = longStringDescription.indexOf("“");
+  const closeQuote = longStringDescription.indexOf("”") + 1;
+  const quote = longStringDescription.substring(openQuote, closeQuote);
+  console.log("quote?:", quote);
 
   return firstQuote.substring(0, firstQuote.indexOf("—")).substring(0, 70);
 };
